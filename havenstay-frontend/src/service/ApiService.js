@@ -2,8 +2,8 @@ import axios from "axios";
 import CryptoJS from "crypto-js";
 
 export default class ApiService{
- static BASE_URL = "http://localhost:9090/api"
- static ENCRYPTION_KEY = "my-secret-key"
+static BASE_URL = process.env.REACT_APP_API_URL;
+static ENCRYPTION_KEY = process.env.REACT_APP_ENCRYPTION_KEY;
 
  //encrypting data usign crypto.js
  static encrypt(token){

@@ -10,7 +10,7 @@ const AllRoomsPage = () => {
     const [roomTypes, setRoomTypes] = useState([]);
     const [selectedRoomType, setSelectedRoomType] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const [roomsPerPage] = useState(5);
+    const [roomsPerPage] = useState(8);
 
     const handleSearchResult = (results) => {
         setRooms(results);

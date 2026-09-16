@@ -41,7 +41,7 @@ public class SecurityFilter {
                                 .authenticationEntryPoint(customAuthenticationEntryPoint)
                 )
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/api/auth/**", "/api/rooms/**", "/api/bookings/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/api/rooms/**", "/api/bookings/**" , "/api/health/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

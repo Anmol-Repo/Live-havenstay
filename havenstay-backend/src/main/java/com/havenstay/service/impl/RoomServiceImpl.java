@@ -8,6 +8,7 @@ import com.havenstay.exception.InvalidBookingStateAndDateException;
 import com.havenstay.exception.NotFoundException;
 import com.havenstay.repository.RoomRepository;
 import com.havenstay.service.RoomService;
+import io.imagekit.client.ImageKitClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -15,6 +16,8 @@ import org.modelmapper.TypeToken;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import io.imagekit.models.files.FileUploadParams;
+import io.imagekit.models.files.FileUploadResponse;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -30,13 +33,14 @@ public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
     private final ModelMapper modelMapper;
+    private final ImageKitClient imageKitClient;
 
 //    private static final String IMAGE_DIRECTORY = System.getProperty("user.dir") + "/product-image/";
 
 //image directory for our frontends app
  //   private static final String IMAGE_DIRECTORY_FRONTEND = "D:\\havenstay\\product-image\\";
 
-    private static final String IMAGE_DIRECTORY_FRONTEND = "D:\\havenstay\\havenstay-frontend\\public\\rooms\\";
+//    private static final String IMAGE_DIRECTORY_FRONTEND = "D:\\havenstay\\havenstay-frontend\\public\\roomsImage\\";
 
 
 
@@ -220,34 +224,62 @@ public class RoomServiceImpl implements RoomService {
 
 
     //save image to frontend folder
-    private String saveImageToFrontend(MultipartFile imageFile){
-        if (imageFile.isEmpty()) {
+//    private String saveImageToFrontend(MultipartFile imageFile){
+//        if (imageFile.isEmpty()) {
+//            throw new IllegalArgumentException("Image file is empty");
+//        }
+//
+//        System.out.println(imageFile.getContentType());
+//
+//
+//        //Create directory to store image if it doesn exist
+//        File directory = new File(IMAGE_DIRECTORY_FRONTEND);
+//
+//        if (!directory.exists()){
+//            directory.mkdir();
+//        }
+//        //Generate uniwue file name for the image
+//        String uniqueFileName = UUID.randomUUID() + "_" + imageFile.getOriginalFilename();
+//        //get the absolute path of the image
+//        String  imagePath = IMAGE_DIRECTORY_FRONTEND + uniqueFileName;
+//
+//        try {
+//            File destinationFile = new File(imagePath);
+//            imageFile.transferTo(destinationFile);
+//        }catch (Exception ex){
+//            throw  new IllegalArgumentException(ex.getMessage());
+//        }
+//
+//        return "/roomsImage/" + uniqueFileName;
+//
+//    }
+
+    //now using a online image hosting service
+    private String saveImageToFrontend(MultipartFile imageFile) {
+
+        if (imageFile == null || imageFile.isEmpty()) {
             throw new IllegalArgumentException("Image file is empty");
         }
 
-        System.out.println(imageFile.getContentType());
-
-
-        //Create directory to store image if it doesn exist
-        File directory = new File(IMAGE_DIRECTORY_FRONTEND);
-
-        if (!directory.exists()){
-            directory.mkdir();
-        }
-        //Generate uniwue file name for the image
-        String uniqueFileName = UUID.randomUUID() + "_" + imageFile.getOriginalFilename();
-        //get the absolute path of the image
-        String  imagePath = IMAGE_DIRECTORY_FRONTEND + uniqueFileName;
-
         try {
-            File destinationFile = new File(imagePath);
-            imageFile.transferTo(destinationFile);
-        }catch (Exception ex){
-            throw  new IllegalArgumentException(ex.getMessage());
+            String uniqueFileName =
+                    UUID.randomUUID() + "_" + imageFile.getOriginalFilename();
+
+            FileUploadParams params = FileUploadParams.builder()
+                    .file(imageFile.getBytes())
+                    .fileName(uniqueFileName)
+                    .folder("/rooms")
+                    .build();
+
+            FileUploadResponse response = imageKitClient.files().upload(params);
+
+            return response.url()
+                    .orElseThrow(() -> new IllegalArgumentException("ImageKit did not return an image URL"));
+
+        } catch (Exception ex) {
+            throw new IllegalArgumentException(
+                    "Failed to upload image: " + ex.getMessage(), ex
+            );
         }
-
-        return "/rooms/" + uniqueFileName;
-
     }
-
 }

@@ -29,6 +29,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
 
 @Service
 @Slf4j
@@ -42,6 +43,8 @@ public class BookingServiceImpl implements BookingService {
     private final UserService userService;
     private final BookingCodeGenerator bookingCodeGenerator;
 
+    @Value("${frontend.url}")
+    private String frontendUrl;
 
     @Override
     public ResponseDTO getAllBookings() {
@@ -108,7 +111,7 @@ public class BookingServiceImpl implements BookingService {
         bookingDTO.setBookingReference(bookingReference);
 
         //generate the payment url which will be sent  by mail
-        String paymentUrl = "http://localhost:3000/payment/"+ bookingReference;
+        String paymentUrl = frontendUrl + "/payment/" + bookingReference;
 
 
         log.info("PAYMENT LINK: {}",paymentUrl);

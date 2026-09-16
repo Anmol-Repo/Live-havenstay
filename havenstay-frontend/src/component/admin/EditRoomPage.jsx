@@ -72,6 +72,7 @@ const EditRoomPage = () => {
     try {
       const formData = new FormData();
       formData.append("type", roomDetails.type);
+      formData.append("roomNumber", roomDetails.roomNumber);
       formData.append("pricePerNight", roomDetails.pricePerNight);
       formData.append("description", roomDetails.description);
       formData.append("capacity", roomDetails.capacity);
