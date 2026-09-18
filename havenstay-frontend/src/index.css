@@ -5,9 +5,450 @@
   /* box-sizing: border-box; */
   overflow-x: hidden;
  }
+
+ .featured-rooms-subtitle{
+    margin-left: 50px;
+ }
  
- 
- 
+ .featured-room-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 20px 45px;
+}
+
+.featured-room-card {
+    flex: 1;
+    min-width: 0;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.featured-room-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.featured-room-details {
+    padding: 18px;
+}
+
+@media (max-width: 900px) {
+    .featured-room-container {
+        flex-wrap: wrap;
+    }
+
+    .featured-room-card {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 600px) {
+    .featured-room-card {
+        flex: 0 0 100%;
+    }
+}
+
+.navbar-ul li .logout-link {
+color: #666;
+padding: 10px 2px;
+border-radius: 20px;
+display: inline-block;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.navbar-ul li .logout-link:hover {
+color: #00a2aa;
+background-color: #e8f7f7;
+}
+
+
+
+
+.how-it-works-page,
+.how-it-works-page * {
+box-sizing: border-box;
+}
+
+.how-it-works-page {
+font-family: Arial, sans-serif;
+color: #444;
+background-color: #f8fbfb;
+min-height: 100vh;
+padding: 22px 60px 80px;
+}
+
+/* PAGE HEADER */
+
+.how-it-works-header {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.how-it-works-header h1 {
+font-size: 42px;
+color: #007F86;
+margin-bottom: 15px;
+font-weight: 550;
+}
+
+.how-it-works-header p {
+font-size: 18px;
+color: #666;
+}
+
+/* MAIN WALKTHROUGH */
+
+.how-it-works-content {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+background-color: #fff;
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+min-height: 620px;
+}
+
+/* LEFT STEP MENU */
+
+.how-it-works-steps {
+width: 34%;
+padding: 30px 20px;
+background-color: #f1fafa;
+border-right: 1px solid #e4eeee;
+}
+
+.how-step {
+display: flex;
+align-items: center;
+gap: 15px;
+padding: 20px 15px;
+margin-bottom: 10px;
+border-radius: 12px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.how-step:hover {
+background-color: #e1f4f4;
+}
+
+.selected-step {
+background-color: #d8f3f3;
+}
+
+.how-step-number {
+min-width: 48px;
+height: 48px;
+border-radius: 50%;
+background-color: #e3e9e9;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+font-weight: bold;
+color: #555;
+}
+
+.selected-step .how-step-number {
+background-color: #007F86;
+color: #fff;
+}
+
+.how-step-title {
+font-size: 17px;
+font-weight: 600;
+color: #444;
+}
+
+.selected-step .how-step-title {
+color: #007F86;
+}
+
+/* RIGHT DETAILS */
+
+.how-it-works-details {
+width: 66%;
+padding: 40px;
+display: flex;
+flex-direction: column;
+}
+
+.how-step-heading {
+display: flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 15px;
+}
+
+.how-step-heading span {
+font-size: 30px;
+font-weight: bold;
+color: #007F86;
+}
+
+.how-step-heading h2 {
+margin-bottom: 0px;    
+font-size: 30px;
+color: #333;
+}
+
+.how-step-description {
+font-size: 17px;
+line-height: 1.7;
+color: #666;
+max-width: 700px;
+margin-bottom: 25px;
+}
+
+/* STEP IMAGE */
+
+.how-step-image-container {
+width: 100%;
+flex: 1;
+min-height: 330px;
+border-radius: 14px;
+overflow: hidden;
+background-color: #eee;
+}
+
+.how-step-image {
+width: 100%;
+height: 100%;
+min-height: 330px;
+object-fit: cover;
+display: block;
+}
+
+/* CONTROLS */
+
+.how-step-controls {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 25px;
+}
+
+.how-step-controls button {
+padding: 11px 20px;
+border: none;
+border-radius: 8px;
+background-color: #007F86;
+color: #fff;
+font-size: 15px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.how-step-controls button:hover:not(:disabled) {
+background-color: rgb(34, 80, 128);
+}
+
+.how-step-controls button:disabled {
+background-color: #ddd;
+color: #999;
+cursor: not-allowed;
+}
+
+/* PROGRESS DOTS */
+
+.how-step-progress {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.progress-dot {
+width: 10px;
+height: 10px;
+background-color: #d5dddd;
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.progress-dot:hover {
+background-color: #8dbfc1;
+}
+
+.active-progress-dot {
+width: 12px;
+height: 12px;
+background-color: #007F86;
+}
+
+/* CTA */
+
+.how-it-works-cta {
+max-width: 1200px;
+margin: 45px auto 0;
+padding: 50px 30px;
+text-align: center;
+background-color: #eaf7f7;
+border-radius: 18px;
+}
+
+.how-it-works-cta h2 {
+color: #007F86;
+font-size: 30px;
+margin-bottom: 12px;
+}
+
+.how-it-works-cta p {
+color: #666;
+font-size: 17px;
+margin-bottom: 22px;
+}
+
+.how-it-works-cta button {
+padding: 13px 28px;
+border: none;
+border-radius: 8px;
+background-color: #007F86;
+color: #fff;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.how-it-works-cta button:hover {
+background-color: rgb(34, 80, 128);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+.how-it-works-page {
+    padding: 40px 25px 70px;
+}
+
+.how-it-works-content {
+    flex-direction: column;
+}
+
+.how-it-works-steps {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e4eeee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.how-step {
+    flex: 1 1 45%;
+    margin-bottom: 0;
+}
+
+.how-it-works-details {
+    width: 100%;
+}
+
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+.how-it-works-page {
+    padding: 30px 15px 60px;
+}
+
+.how-it-works-header h1 {
+    font-size: 32px;
+}
+
+.how-it-works-header p {
+    font-size: 15px;
+}
+
+.how-it-works-steps {
+    display: block;
+}
+
+.how-step {
+    width: 100%;
+}
+
+.how-it-works-details {
+    padding: 25px;
+}
+
+.how-step-heading h2 {
+    font-size: 25px;
+}
+
+.how-step-heading span {
+    font-size: 24px;
+}
+
+.how-step-description {
+    font-size: 15px;
+}
+
+.how-step-image-container {
+    min-height: 220px;
+}
+
+.how-step-image {
+    min-height: 220px;
+}
+
+.how-step-controls {
+    gap: 10px;
+}
+
+.how-step-controls button {
+    padding: 9px 14px;
+    font-size: 14px;
+}
+
+.how-it-works-cta {
+    padding: 35px 20px;
+}
+
+.how-it-works-cta h2 {
+    font-size: 25px;
+}
+
+}
+
+
+.how-left-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.how-step-icon {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.how-step-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
  
  .colors {
   color: pink;
@@ -26,12 +467,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 70px 25px 75px;
+  padding: 10px 70px 5px 75px;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 550;
  }
  
  
@@ -54,7 +495,7 @@
  
  
  .navbar-ul li {
-  margin-left: 20px;
+  margin-left: 10px;
  }
  
  
@@ -194,19 +635,16 @@
  
  
  /* FOOTER STYKLING */
- .my-footer {
-  color: #f0e8e8;
-  background-color: #444;
-  padding: 20px;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  font-weight: 500;
-  padding: 15px 10px;
-  font-size: 14px;
- }
- 
+ .my-footer { 
+    color: #f0e8e8; 
+    background-color: #444; 
+    padding: 15px 10px; 
+    text-align: center; 
+    font-weight: 500; 
+    font-size: 14px; 
+    width: 100%; 
+    
+}
  
  
  
@@ -505,15 +943,15 @@
   margin: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 15px;
+  padding: 12px;
   display: flex;
  }
  
  
 .service-card img {
       /* Adjust size of icon */
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     margin-right: 12px;
     margin-top: 5px;
@@ -826,14 +1264,20 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
  
- .error-message {
-  text-align: center;
-  color: #b10505;
-  font-weight: 800;
-  font-size: 20px;
- 
- 
- }
+ .room-details-booking .error-message {
+grid-column: 1 / -1;
+width: 100%;
+box-sizing: border-box;
+margin: -15px 0 10px;
+padding: 14px 20px;
+background: #ffe9e9;
+color: #c62828;
+border: 1px solid #f5b5b5;
+border-radius: 8px;
+text-align: center;
+font-size: 15px;
+font-weight: 500;
+}
  
  
  .success-message {
@@ -2015,7 +2459,173 @@
     color: #666;
   }
   
+  .room-details-booking {
+max-width: 1300px;
+margin: 30px auto 100px;
+padding: 20px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 35px;
+align-items: start;
+background-color: #fff;
+border-radius: 18px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.room-details-booking > h2 {
+grid-column: 1 / -1;
+text-align: center;
+color: #007F86;
+font-size: 32px;
+margin-bottom: 5px;
+}
+
+.room-details-image {
+width:100% ;
+height: 420px;
+object-fit: cover;
+border-radius: 14px;
+display: block;
+}
+
+.room-details-info {
+text-align: left;
+margin: 0;
+padding: 10px 5px;
+}
+
+.room-details-info h3 {
+font-size: 30px;
+color: #007F86;
+margin-bottom: 20px;
+}
+
+.room-details-info p {
+font-size: 17px;
+line-height: 1.6;
+margin: 12px 0;
+color: #555;
+}
+
+.room-details-info p:last-child {
+margin-top: 22px;
+padding-top: 20px;
+border-top: 1px solid #e5e5e5;
+max-width: 500px;
+}
+
+.booking-info {
+grid-column: 1 / -1;
+margin-top: 5px;
+text-align: center;
+}
+
+.room-details-booking .book-now-button {
+padding: 12px 25px;
+font-size: 16px;
+}
+
+@media (max-width: 768px) {
+.room-details-booking {
+grid-template-columns: 1fr;
+margin: 25px 15px 80px;
+padding: 20px;
+}
+
+.room-details-booking > h2 {
+    grid-column: 1;
+    font-size: 26px;
+}
+
+.room-details-image {
+    height: 280px;
+}
+
+.room-details-info {
+    padding: 0;
+}
+
+.room-details-info h3 {
+    font-size: 25px;
+}
+
+.booking-info {
+    grid-column: 1;
+}
+
+}
  
+
+.havenstay-room-details-calendar-layout {
+width: 100%;
+max-width: 800px;
+margin: 30px auto 0;
+display: grid;
+grid-template-columns: repeat(2, minmax(280px, 1fr));
+gap: 25px;
+align-items: start;
+scroll-margin-top: 30px;
+}
+
+.havenstay-room-details-calendar {
+padding: 20px;
+background: #f8fbfb;
+border-radius: 12px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.havenstay-room-details-calendar label {
+font-size: 17px;
+font-weight: 600;
+margin-bottom: 10px;
+color: #007F86;
+}
+
+.havenstay-room-details-proceed {
+grid-column: 1 / -1;
+justify-self: center;
+padding: 12px 28px;
+border: none;
+border-radius: 8px;
+background: #007F86;
+color: white;
+font-size: 16px;
+cursor: pointer;
+}
+
+
+@media (max-width: 700px) {
+.havenstay-room-details-calendar-layout {
+grid-template-columns: 1fr;
+max-width: 400px;
+}
+
+.havenstay-room-details-proceed {
+grid-column: 1;
+}
+}
+
+.havenstay-room-error-toast {
+position: fixed;
+top: 90px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 9999;
+width: min(700px, calc(100% - 40px));
+box-sizing: border-box;
+margin: 0;
+padding: 14px 22px;
+background: #ffe9e9;
+color: #c62828;
+border: 1px solid #f1b5b5;
+border-radius: 8px;
+text-align: center;
+font-size: 15px;
+font-weight: 500;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
  
  
  

@@ -20,6 +20,9 @@ import EditRoomPage from './component/admin/EditRoomPage';
 import ManageBookingsPage from './component/admin/ManageBookingsPage';
 import EditBookingPage from './component/admin/EditBookingPage';
 import AdminRegisterPage from './component/admin/AdminRegisterPage';
+import HowItWorksPage from './component/how_it_works/HowItWorksPage';
+import Footer from './component/common/Footer';
+
 
 function App() {
   return (  
@@ -33,10 +36,10 @@ function App() {
           <Route path="/home" element={<HomePage/>}/>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/rooms" element={<AllRoomsPage/>}/>
+          <Route path="/how-it-works" element={<HowItWorksPage/>}/>
           <Route path="/find-booking" element={<FindBookingPage/>}/>
 
-          <Route path="/room-details/:roomId" 
-          element={<CustomerRoute element={<RoomDetailsPage/>}/>} />
+         <Route path="/room-details/:roomId" element={<RoomDetailsPage/>} />
 
           <Route path="/profile" 
           element={<CustomerRoute element={<ProfilePage/>}/>} />
@@ -86,7 +89,7 @@ function App() {
         </Routes>
 
        </div>
-       <footer/>
+       <Footer />
     </div>
     </BrowserRouter>  
   );

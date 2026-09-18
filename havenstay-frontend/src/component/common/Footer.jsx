@@ -2,7 +2,7 @@ const Footer = () =>{
 
     return(
         <footer className="my-footer">
-            <span> HavenStay | All Rights Reserved &copy: 2026</span>
+            <span style={{ color: "#f1f1f1" }}> HavenStay | All Rights Reserved: 2026</span>
         </footer>
     )
 
