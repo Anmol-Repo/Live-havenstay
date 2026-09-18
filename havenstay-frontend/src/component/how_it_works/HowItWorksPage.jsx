@@ -24,7 +24,7 @@ const HowItWorksPage = () => {
         {
             number: "03",
             title: "Select & Book",
-            icon: "./images/how/book-icon.png",
+            icon: "./images/book-icon.png",
             description:
                 "Choose a room that fits your needs, select your stay dates and review the booking details before confirming.",
             video: "./images/how/how-book.mp4"
