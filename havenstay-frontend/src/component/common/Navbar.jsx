@@ -28,7 +28,7 @@ function Navbar() {
             <ul className="navbar-ul">
                 <li><NavLink to={"/home"} activeClassname="active">Home</NavLink></li>
                 <li><NavLink to={"/rooms"} activeClassname="active">Rooms</NavLink></li>
-                <li><NavLink to={"/how-it-works"} activeClassname="active">How It Works</NavLink></li>
+                <li><NavLink to={"/how-it-works"} activeClassname="active" className="havenstay-how-it-works-nav">How It Works</NavLink></li>
                 <li><NavLink to={"/find-booking"} activeClassname="active">Find My Bookings</NavLink></li>
 
                 { isCustomer && <li><NavLink to={"/profile"} activeClassname="active">Profile</NavLink></li>}

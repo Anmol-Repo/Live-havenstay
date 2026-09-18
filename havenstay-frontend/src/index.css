@@ -2646,5 +2646,140 @@ flex-direction: column;
 flex: 1;
 }
 
- 
- 
+
+.havenstay-how-it-works-prompt {
+position: fixed;
+top: 90px;
+left: 60%;
+transform: translateX(-50%);
+width: min(520px, calc(100% - 40px));
+background: linear-gradient(135deg, #ffffff 0%, #fff8f0 100%);
+border: 2px solid #ffb347;
+border-radius: 40px;
+padding: 8px 6px 8px 20px;
+box-sizing: border-box;   
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+z-index: 10000;
+}
+
+.havenstay-prompt-content {
+display: flex;
+align-items: center;
+gap: 18px;
+}
+
+.havenstay-prompt-icon {
+width: 58px;
+height: 58px;
+min-width: 58px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(135deg, #ffb347, #ff6b35);
+font-size: 29px;
+box-shadow: 0 5px 12px rgba(255, 107, 53, 0.3);
+}
+
+.havenstay-prompt-text {
+flex: 1;
+position: relative;
+}
+
+.havenstay-prompt-text h3 {
+margin: 0 0 6px;
+color: #007F86;
+font-family: Arial, sans-serif;
+font-size: 20px;
+font-weight: 800;
+}
+
+.havenstay-prompt-text p {
+margin: 0;
+color: #4f5555;
+font-family: Arial, sans-serif;
+font-size: 15px;
+line-height: 1.5;
+font-weight: 500;
+}
+
+
+.havenstay-prompt-close {
+position: absolute;
+top: 8px;
+right: 13px;
+border: none;
+background: transparent;
+color: #777;
+font-size: 24px;
+font-weight: 700;
+cursor: pointer;
+line-height: 1;
+}
+
+.havenstay-prompt-close:hover {
+color: #ff6b35;
+}
+
+@media (max-width: 700px) {
+.havenstay-how-it-works-prompt {
+top: 75px;
+width: calc(100% - 25px);
+padding: 20px 35px 20px 18px;
+border-radius: 24px;
+}
+
+.havenstay-prompt-content {
+flex-direction: column;
+align-items: stretch;
+}
+
+.havenstay-prompt-text {
+padding-right: 0;
+text-align: center;
+}
+
+}
+
+
+.havenstay-how-it-works-nav {
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+
+.havenstay-how-it-works-nav::before {
+content: "";
+position: absolute;
+inset: -2px;
+border-radius: 24px;
+background: conic-gradient(
+from 0deg,
+#00c6ff,
+#007F86,
+#7b2cff,
+#ff4ecd,
+#ff9f1c,
+#00c6ff
+);
+z-index: -2;
+animation: havenstay-how-it-works-glow 3s linear 1;
+}
+
+.havenstay-how-it-works-nav::after {
+content: "";
+position: absolute;
+inset: 2px;
+background: white;
+border-radius: 21px;
+z-index: -1;
+}
+
+@keyframes havenstay-how-it-works-glow {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
