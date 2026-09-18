@@ -11,7 +11,7 @@ const HowItWorksPage = () => {
             icon: "./images/explore-icon.png",
             description:
                 "Browse the available rooms at HavenStay and explore the different room types, prices, capacities and amenities.",
-            image: "./images/how/how-explore.png"
+            video: "./images/how/how-explore.mp4"
         },
         {
             number: "02",
@@ -19,7 +19,7 @@ const HowItWorksPage = () => {
             icon: "./images/search-icon.png",
             description:
                 "Select your room type, check-in date and check-out date to find rooms available for your stay.",
-            image: "./images/how/how-search.png"
+            video: "./images/how/how-search.mp4"
         },
         {
             number: "03",
@@ -27,7 +27,7 @@ const HowItWorksPage = () => {
             icon: "./images/how/book-icon.png",
             description:
                 "Choose a room that fits your needs, select your stay dates and review the booking details before confirming.",
-            image: "./images/how-book.png"
+            video: "./images/how/how-book.mp4"
         },
         {
             number: "04",
@@ -35,7 +35,7 @@ const HowItWorksPage = () => {
             icon: "./images/payment-icon.png",
             description:
                 "Proceed to secure online payment through Razorpay to complete the payment for your booking.",
-            image: "./images/how/how-payment.png"
+            video: "./images/how/how-payment.mp4"
         },
         {
             number: "05",
@@ -43,13 +43,11 @@ const HowItWorksPage = () => {
             icon: "./images/confirmation-icon.png",
             description:
                 "After successful payment, your booking is confirmed and you receive the booking and payment information through email.",
-            image: "./images/how/how-confirmation.png"
+            video: "./images/how/how-confirmation.mp4"
         }
     ];
- 
 
     const currentStep = steps[selectedStep];
-
 
     const handlePrevious = () => {
         if (selectedStep > 0) {
@@ -57,13 +55,11 @@ const HowItWorksPage = () => {
         }
     };
 
-
     const handleNext = () => {
         if (selectedStep < steps.length - 1) {
             setSelectedStep(selectedStep + 1);
         }
     };
-
 
     return (
         <div className="how-it-works-page">
@@ -74,7 +70,6 @@ const HowItWorksPage = () => {
                     Book your stay at HavenStay in just a few simple steps.
                 </p>
             </div>
-
 
             <div className="how-it-works-content">
 
@@ -111,7 +106,6 @@ const HowItWorksPage = () => {
 
                 </div>
 
-
                 {/* STEP DETAILS */}
                 <div className="how-it-works-details">
 
@@ -119,30 +113,26 @@ const HowItWorksPage = () => {
 
                         <span>{currentStep.number}</span>
 
-                        {/* <img
-                            src={currentStep.icon}
-                            alt=""
-                            className="how-step-icon"
-                        /> */}
-
                         <h2>{currentStep.title}</h2>
 
                     </div>
-
 
                     <p className="how-step-description">
                         {currentStep.description}
                     </p>
 
-
                     <div className="how-step-image-container">
-                        <img
-                            src={currentStep.image}
-                            alt={currentStep.title}
-                            className="how-step-image"
-                        />
-                    </div>
 
+                        <video
+                            src={currentStep.video}
+                            className="how-step-image"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                        />
+
+                    </div>
 
                     <div className="how-step-controls">
 
@@ -152,7 +142,6 @@ const HowItWorksPage = () => {
                         >
                             ← Previous
                         </button>
-
 
                         <div className="how-step-progress">
 
@@ -170,7 +159,6 @@ const HowItWorksPage = () => {
 
                         </div>
 
-
                         <button
                             onClick={handleNext}
                             disabled={selectedStep === steps.length - 1}
@@ -183,7 +171,6 @@ const HowItWorksPage = () => {
                 </div>
 
             </div>
-
 
             {/* FINAL CTA */}
             <div className="how-it-works-cta">
