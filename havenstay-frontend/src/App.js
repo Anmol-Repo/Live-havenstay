@@ -59,7 +59,7 @@ if (showPrompt) {
 
   const timer = setTimeout(() => {
     setShowPrompt(false);
-  }, 8000);
+  }, 2500);
 
   return () => clearTimeout(timer);
 }
